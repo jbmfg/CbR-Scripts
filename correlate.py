@@ -46,10 +46,6 @@ class correlate(object):
         f.writerow(["Watchlist ID", "Min", "Max", "Avg", "Count", "Name", "URL Param"])
         for k in results:
             try:
-                print(k)
-                print(wlDict[k])
-                print(wlDict[k][0])
-                print(wlDict[k][1])
                 f.writerow([k, results[k]["min"], results[k]["max"], results[k]["avg"], results[k]["count"], wlDict[k][0], wlDict[k][1]])
             except:
                 pass
@@ -60,7 +56,7 @@ class correlate(object):
 
 
 def main():
-    correlation = correlate('qtime.txt', 'watchlists.csv')
+    correlation = correlate('qtime.txt.full', 'watchlists.csv')
     parsedQTime = correlation.readqtime()
     wlDict = correlation.readWL()
     doMath = correlation.maths(parsedQTime)
